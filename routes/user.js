@@ -8,19 +8,23 @@ router.post(
   controller.signup
 );
 router.post(
+  "/signin",
+  controller.signin
+);
+router.post(
   "/view-profile",
   authJwt.verifyToken,
   controller.profile
 );
 router.post(
-  "/update-user-profile",
+  "/deposit-token",
   authJwt.verifyToken,
   controller.depositToken
 );
 router.post(
-  "/enter-contest",
+  "/withdraw-token",
   authJwt.verifyToken,
-  controller.WithdrawToken
+  controller.withdrawToken
 );
 
 module.exports = router;

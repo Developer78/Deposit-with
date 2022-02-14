@@ -6,16 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Adeel-AJ/xana-event.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Adeel-AJ/xana-event/issues"
-  },
-  "homepage": "https://github.com/Adeel-AJ/xana-event#readme",
   "dependencies": {
     "@google-cloud/translate": "^6.2.7",
     "@sendgrid/mail": "^7.4.5",

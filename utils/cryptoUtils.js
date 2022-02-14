@@ -11,15 +11,15 @@ const abiArray = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":
 const transfer = async ({ toAddress, amount, chainType, type }) => {
 	console.log("in updateTokenUri function", new Date().getTime());
 	console.log({ toAddress, amount, chainType, type });
-	let toAddr;
+	let ethtoAddress;
 	let publicKey;
 	let privKey;
 	if(type == 'withdraw') {
-		toAddr = toAddress.pubKey;
+		ethtoAddress = toAddress.pubKey;
 		publicKey = compAddress;
 		privKey = compPriv;
 	} else {
-		toAddr = compAddress;
+		ethtoAddress = compAddress;
 		publicKey = toAddress.pubKey;
 		privKey = toAddress.privKey;
 	}

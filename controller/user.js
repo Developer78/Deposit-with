@@ -2,6 +2,9 @@ const mongoUtil = require('../utils/db');
 const { transfer } = require("../utils/cryptoUtils")
 const ObjectID = require('mongodb').ObjectID;
 var Wallet = require('ethereumjs-wallet');
+var jwt = require("jsonwebtoken");
+var bcrypt = require("bcryptjs");
+const process = require('../utils/process');
 
 const signup = async (req, res) => {
     try {
@@ -36,6 +39,42 @@ const signup = async (req, res) => {
     }
 }
 
+const signin = async (req, res) => {
+    try {
+        const { body: {
+                email,
+                password,
+
+            } } = req;
+         
+        const userData = await mongoUtil.retrieveOneInfo("user", {email: { $regex: "^"+email+"$", $options: 'i' }});
+        if(userData && userData._id) {
+            if(userData.password == password) {
+                var token = jwt.sign({ id: userData._id }, process.env_production.JWT_SECRET, {
+                  expiresIn: 86400 // 24 hours
+                });
+
+                return res.status(200).send({
+                  'success': true, data: {
+                    user: {
+                      ...userData,
+                      password: undefined
+                    },
+                    accessToken: token
+                  }
+                });
+            } else {
+                return res.status(400).send({success: false,data: "password invalid"});   
+            }
+        } else {
+            return res.status(400).send({success: false,data: "email invalid"});
+        }
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({success: false,data: "Something went wrong",error});
+    }
+}
+
 const profile = async (req, res) => {
     try {
         const { userId } = req;
@@ -44,6 +83,7 @@ const profile = async (req, res) => {
         if(userData && userData._id) {
 
             delete(userData.privateKey)
+            delete(userData.password)
 
             return res.status(200).send({success: true,data: userData});
         } else {
@@ -110,6 +150,9 @@ const withdrawToken = async (req, res) => {
 }
 
 module.exports = {
+    signup,
+    profile,
+    signin,
     depositToken,
     withdrawToken
 }

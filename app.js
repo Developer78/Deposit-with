@@ -1,4 +1,5 @@
 const path = require('path');
+const logger = require('morgan');
 const express = require('express');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
@@ -7,7 +8,7 @@ const process = require('./utils/process')
 const mongoUtil = require('./utils/db');
 const fileUpload = require('express-fileupload');
 const user = require('./routes/user');
-const passport = require( 'passport');  
+const passport = require( 'passport');
 mongoUtil.connectToServer(function (err, client) {
     if (err) console.log(err);
 });
@@ -39,10 +40,7 @@ app.use(function (req, res, next) {
 });
 
 app.use(securityCheck);
-app.use(passport.initialize()); 
-app.use(passport.session());    
 
-initialize();
 
 app.use('/user', user);
 
