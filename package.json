@@ -1,0 +1,60 @@
+{
+  "name": "Deposit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adeel-AJ/xana-event.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adeel-AJ/xana-event/issues"
+  },
+  "homepage": "https://github.com/Adeel-AJ/xana-event#readme",
+  "dependencies": {
+    "@google-cloud/translate": "^6.2.7",
+    "@sendgrid/mail": "^7.4.5",
+    "aws-sdk": "^2.895.0",
+    "axios": "^0.21.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cron": "^1.8.2",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.0.0",
+    "csv-parser": "^3.0.0",
+    "delay": "^5.0.0",
+    "edit-json-file": "^1.7.0",
+    "ethereumjs-wallet": "^0.6.3",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-validator": "^6.12.0",
+    "http-errors": "^1.8.0",
+    "ipfs-http-client": "^49.0.4",
+    "is-url": "^1.2.4",
+    "isodate": "^0.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.1",
+    "mailchecker": "^4.0.8",
+    "mongodb": "^3.6.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "node-fetch": "^2.6.1",
+    "passport": "^0.4.1",
+    "passport-facebook-token": "^4.0.0",
+    "passport-instagram-token": "^2.3.0",
+    "passport-twitter-token": "^1.3.0",
+    "path": "^0.12.7",
+    "referral-code-generator": "^1.0.8",
+    "stripe": "^8.156.0",
+    "web-encoding": "^1.1.3",
+    "web3": "^1.0.0-beta.55",
+    "websocket": "^1.0.33",
+    "ws": "^7.4.3"
+  }
+}
